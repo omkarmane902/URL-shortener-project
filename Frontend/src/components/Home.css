@@ -1,0 +1,348 @@
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #0f172a, #111827, #020617);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.url-card {
+  width: 100%;
+  max-width: 650px;
+  padding: 45px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+
+  text-align: center;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.url-card h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  margin: 12px 0 30px;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.url-card form {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+
+/* INPUT */
+
+.url-card input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 15px 18px;
+
+  border: 1px solid #334155;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #0f172a;
+  color: #ffffff;
+
+  font-size: 15px;
+
+  transition: 0.3s ease;
+}
+
+.url-card input::placeholder {
+  color: #64748b;
+}
+
+.url-card input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+
+/* GENERATE BUTTON */
+
+.url-card form button {
+  padding: 15px 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #6366f1;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+.url-card form button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.url-card form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+  margin-top: 20px;
+  padding: 12px 15px;
+
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+
+  color: #f87171;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result-box {
+  margin-top: 30px;
+  padding: 25px;
+
+  border-radius: 15px;
+
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+
+  animation: showResult 0.4s ease;
+}
+
+@keyframes showResult {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* RESULT TITLE */
+
+.result-box h3 {
+  margin: 0 0 15px;
+
+  color: #e2e8f0;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   SHORT URL
+========================= */
+
+.short-url {
+  padding: 13px 15px;
+
+  border-radius: 8px;
+
+  background: #020617;
+
+  overflow: hidden;
+}
+
+.short-url a {
+  color: #818cf8;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  word-break: break-all;
+
+  transition: 0.3s;
+}
+
+.short-url a:hover {
+  color: #a5b4fc;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+
+/* COPY BUTTON */
+
+.actions button {
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #334155;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  background: #475569;
+  transform: translateY(-2px);
+}
+
+
+/* ANALYTICS BUTTON */
+
+.analytics-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  background: #6366f1;
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.analytics-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+
+  .url-card {
+    padding: 35px 25px;
+  }
+
+  .url-card h1 {
+    font-size: 34px;
+  }
+
+  .url-card form {
+    flex-direction: column;
+  }
+
+  .url-card form button {
+    width: 100%;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .home-container {
+    padding: 20px 15px;
+  }
+
+  .url-card {
+    padding: 30px 18px;
+    border-radius: 15px;
+  }
+
+  .url-card h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button,
+  .analytics-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
