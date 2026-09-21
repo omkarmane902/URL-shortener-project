@@ -24,7 +24,7 @@ const Home = () => {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:8080/url",
+        `${import.meta.env.VITE_API_URL}/url`,
         {
           url: url,
         }
@@ -34,27 +34,27 @@ const Home = () => {
 
       setShortId(response.data.id);
       setUrl("");
+
     } catch (error) {
       console.error("Axios Error:", error);
 
       if (error.response) {
         setError(
           error.response.data?.message ||
-            error.response.data?.Message ||
-            "Something went wrong"
+          error.response.data?.Message ||
+          "Something went wrong"
         );
       } else {
-        setError(
-          "Cannot connect to backend. Make sure server is running on port 8080."
-        );
+        setError("Cannot connect to backend.");
       }
+
     } finally {
       setLoading(false);
     }
   };
 
   const shortUrl = shortId
-    ? `http://localhost:8080/url/${shortId}`
+    ? `${import.meta.env.VITE_API_URL}/url/${shortId}`
     : "";
 
   const copyUrl = async () => {
@@ -68,6 +68,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+
       <div className="url-card">
 
         <h1>URL Shortener</h1>
@@ -86,7 +87,9 @@ const Home = () => {
           />
 
           <button type="submit" disabled={loading}>
-            {loading ? "Generating..." : "Generate Short URL"}
+            {loading
+              ? "Generating..."
+              : "Generate Short URL"}
           </button>
 
         </form>
@@ -103,6 +106,7 @@ const Home = () => {
             <h3>Your Short URL</h3>
 
             <div className="short-url">
+
               <a
                 href={shortUrl}
                 target="_blank"
@@ -110,6 +114,7 @@ const Home = () => {
               >
                 {shortUrl}
               </a>
+
             </div>
 
             <div className="actions">
@@ -131,6 +136,7 @@ const Home = () => {
         )}
 
       </div>
+
     </div>
   );
 };

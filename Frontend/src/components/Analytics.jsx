@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "./Analytics.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Analytics = () => {
   const { shortId } = useParams();
 
@@ -14,21 +16,25 @@ const Analytics = () => {
     const getAnalytics = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/url/analytics/${shortId}`
+          `${API_URL}/url/analytics/${shortId}`
         );
 
         console.log("Analytics Data:", response.data);
 
         setData(response.data);
+
       } catch (error) {
         console.error("Analytics Error:", error);
+
         setError("Unable to load analytics");
+
       } finally {
         setLoading(false);
       }
     };
 
     getAnalytics();
+
   }, [shortId]);
 
   if (loading) {
@@ -57,11 +63,13 @@ const Analytics = () => {
         </Link>
 
         <div className="analytics-header">
+
           <h1>URL Analytics</h1>
 
           <p>
             Track your short URL performance
           </p>
+
         </div>
 
         <div className="stats-card">
@@ -97,10 +105,12 @@ const Analytics = () => {
             <table className="history-table">
 
               <thead>
+
                 <tr>
                   <th>#</th>
                   <th>Date & Time</th>
                 </tr>
+
               </thead>
 
               <tbody>
